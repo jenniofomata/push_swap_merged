@@ -21,6 +21,6 @@ int				is_sign(char c);
 int				ft_strcmp(const char *s1, const char *s2);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memset(void *s, int c, size_t n);
-void			*ft_realloc(void *ptr, size_t size);
+void			*ft_grow(void *ptr, size_t used, size_t size);
 
 #endif
