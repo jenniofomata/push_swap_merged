@@ -40,8 +40,9 @@ static int	op_realloc(t_context *ctx)
 	}
 	if (new_cap > (size_t)-1 / sizeof(*ctx->ops))
 		return (0);
-	tmp = ft_realloc(ctx->ops, sizeof(*ctx->ops) * new_cap);
-	if (!tmp)
+	tmp = ft_grow(ctx->ops, sizeof(*ctx->ops) * ctx->ops_size,
+			sizeof(*ctx->ops) * new_cap);	
+		if (!tmp)
 		return (0);
 	ctx->ops = tmp;
 	ctx->ops_cap = new_cap;
