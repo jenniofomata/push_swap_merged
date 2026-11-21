@@ -27,7 +27,15 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-void	*ft_realloc(void *ptr, size_t size)
+void	*ft_grow(void *ptr, size_t used, size_t size)
 {
-	return (realloc(ptr, size));
+	void	*fresh;
+
+	fresh = malloc(size);
+	if (!fresh)
+		return (NULL);
+	if (used)
+		ft_memcpy(fresh, ptr, used);
+	free(ptr);
+	return (fresh);
 }
